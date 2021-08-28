@@ -52,3 +52,7 @@ cursor: pointer;
     -webkit-box-orient: vertical;
 
 }
+.postImg{
+    width: 100%;
+    object-fit: cover;
+}

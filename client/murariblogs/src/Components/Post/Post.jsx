@@ -4,6 +4,7 @@ export const Post = () => {
 	return (
 		<div className="post">
 			<img
+				className="postImg"
 				src="https://picsum.photos/200/300"
 				alt="post.png"
 			/>
