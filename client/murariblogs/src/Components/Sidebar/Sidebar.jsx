@@ -9,7 +9,7 @@ export const Sidebar = () => {
 					src="https://bhargavreddykudalaportfolio.vercel.app/images/profile.pic.png"
 					alt="profile.png"
 				/>
-				<p>
+				<p className="sidebarDesc">
 					Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate qui
 					necessitatibus nostrum illum reprehenderit.
 				</p>
