@@ -1,8 +1,53 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { Sidebar } from "../../Components/Sidebar/Sidebar";
+import { Context } from "../../Context/Context";
 import "./Settings.css";
+import axios from "axios";
 
 export const Settings = () => {
+	const { user, dispatch } = useContext(Context);
+	const [file, setFile] = useState(null);
+	const [username, setUsername] = useState("");
+	const [email, setEmail] = useState("");
+	const [password, setPassword] = useState("");
+
+	const [update, setUpdate] = useState(false);
+
+	const PF = "http://localhost:8000/Images/";
+
+	const handleSubmit = async (e) => {
+		e.preventDefault();
+		dispatch({ type: "UPDATE_START" });
+		const updatedUser = {
+			userId: user._id,
+			username,
+			email,
+			password,
+		};
+		if (file) {
+			const data = new FormData();
+			const filename = Date.now() + file.name;
+			data.append("name", filename);
+			data.append("file", file);
+			updatedUser.profilePic = filename;
+			try {
+				await axios.post("http://localhost:8000/api/upload", data);
+			} catch (err) {
+				console.log(err);
+			}
+		}
+		try {
+			const res = await axios.put(
+				`http://localhost:8000/api/users/${user._id}`,
+				updatedUser
+			);
+			setUpdate(true);
+			dispatch({ type: "UPDATE_SUCCESS", payload: res.data });
+		} catch (err) {
+			dispatch({ type: "UPDATE_FAILURE" });
+		}
+	};
+
 	return (
 		<div className="settings">
 			<div className="settingsWrapper">
@@ -10,25 +55,44 @@ export const Settings = () => {
 					<span className="settingsUpdateTitle">Update Your Account</span>
 					<span className="settingsDeleteTitle">Delete Your Account</span>
 				</div>
-				<form className="settingsForm">
+				<form className="settingsForm" onSubmit={handleSubmit}>
 					<label>Profile Picture</label>
 					<div className="settingsPP">
 						<img
-							src="https://images.pexels.com/photos/624015/pexels-photo-624015.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-							alt="pp.png"
+							src={file ? URL.createObjectURL(file) : PF + user.profilePic}
+							alt="profile.png"
 						/>
 						<label htmlFor="fileInput">
 							<i className=" settingsPPIcon fas fa-user-circle"></i>
-							<input type="file" id="fileInput" style={{ display: "none" }} />
+							<input
+								type="file"
+								id="fileInput"
+								style={{ display: "none" }}
+								onChange={(e) => setFile(e.target.files[0])}
+							/>
 						</label>
 					</div>
 					<label> Username</label>
-					<input type="text" placeholder="Username" />
+					<input
+						type="text"
+						placeholder={user.username}
+						onChange={(e) => setUsername(e.target.value)}
+					/>
 					<label> Email</label>
-					<input type="email" placeholder="abc@gmail.com" />
+					<input
+						type="email"
+						placeholder={user.email}
+						onChange={(e) => setEmail(e.target.value)}
+					/>
 					<label> Password</label>
-                    <input type="password" />
-                    <button className="settingsSubmit">Update</button>
+					<input
+						type="password"
+						onChange={(e) => setPassword(e.target.value)}
+					/>
+					<button className="settingsSubmit" type="submit">
+						Update
+					</button>
+					{update && <span className="update">Profile has been updated </span>}
 				</form>
 			</div>
 			<Sidebar />

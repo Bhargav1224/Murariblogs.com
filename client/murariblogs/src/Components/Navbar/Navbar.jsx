@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./Navbar.css";
 import { Link } from "react-router-dom";
+import { Context } from "../../Context/Context";
 export const Navbar = () => {
-	const user = false;
+	const { user, dispatch } = useContext(Context);
+	const handleLogout = () => {
+		dispatch({
+			type: "LOGOUT",
+		});
+	};
+
+	const PF = "http://localhost:8000/Images/";
 
 	return (
 		<div className="top">
@@ -34,22 +42,16 @@ export const Navbar = () => {
 							WRITE
 						</Link>
 					</li>
-					<li className="topListItem">
-						{user && (
-							<Link className="link" to="/logout">
-								LOGOUT
-							</Link>
-						)}
+					<li className="topListItem" onClick={handleLogout}>
+						{user && "LOGOUT"}
 					</li>
 				</ul>
 			</div>
 			<div className="topright">
 				{user ? (
-					<img
-						className="topImage"
-						src="https://bhargavreddykudalaportfolio.vercel.app/images/profile.pic.png"
-						alt="profile.png"
-					/>
+					<Link to="/settings">
+						<img className="topImage" src={PF+user.profilePic} alt="profile.png" />
+					</Link>
 				) : (
 					<ul className="topList">
 						<li className="topListItem">

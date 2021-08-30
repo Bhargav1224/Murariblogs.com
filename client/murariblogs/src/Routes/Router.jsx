@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Navbar } from "../Components/Navbar/Navbar";
 import { Settings } from "../Pages/Settings/Settings";
 import { Home } from "../Pages/Home/Home";
@@ -7,8 +7,11 @@ import { Write } from "../Pages/Write/Write";
 import { Switch, Route } from "react-router-dom";
 import { Register } from "../Pages/Register/Register";
 import { Login } from "../Pages/Login/Login";
+import { Context } from "../Context/Context";
 export const Router = () => {
-	const user = false;
+	const { user } = useContext(Context);
+	
+
 	return (
 		<div>
 			<Navbar />
