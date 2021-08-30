@@ -8,7 +8,7 @@ export const Sidebar = () => {
 
 	const getCats = () => {
 		return axios
-			.get("http://localhost:8000/api/categories")
+			.get("https://murariblog.vercel.app/api/categories")
 			.then((res) => {
 				console.log(res.data);
 				setCats(res.data);

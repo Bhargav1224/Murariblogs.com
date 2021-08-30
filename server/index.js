@@ -44,6 +44,6 @@ app.use("/api/users", userRouter);
 app.use("/api/posts", postRouter);
 app.use("/api/categories", categoryRouter);
 
-app.listen("8000", () => {
-	console.log("Listening port 8000");
-});
+app.listen(process.env.PORT || 8000, () => {
+    console.log("Listening on port 8000");
+  });

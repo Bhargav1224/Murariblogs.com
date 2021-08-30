@@ -10,7 +10,7 @@ export const Navbar = () => {
 		});
 	};
 
-	const PF = "http://localhost:8000/Images/";
+	const PF = "https://murariblog.vercel.app/Images/";
 
 	return (
 		<div className="top">
@@ -50,7 +50,11 @@ export const Navbar = () => {
 			<div className="topright">
 				{user ? (
 					<Link to="/settings">
-						<img className="topImage" src={PF+user.profilePic} alt="profile.png" />
+						<img
+							className="topImage"
+							src={PF + user.profilePic}
+							alt="profile.png"
+						/>
 					</Link>
 				) : (
 					<ul className="topList">

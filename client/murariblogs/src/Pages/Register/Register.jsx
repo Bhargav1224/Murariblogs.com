@@ -33,7 +33,7 @@ export const Register = () => {
 		};
 		setError(false);
 		return axios
-			.post("http://localhost:8000/api/auth/register", payload)
+			.post("https://murariblog.vercel.app/api/auth/register", payload)
 			.then((res) => {
 				res.data && history.push("/login");
 			})

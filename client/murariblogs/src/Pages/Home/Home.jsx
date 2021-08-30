@@ -4,7 +4,7 @@ import { Sidebar } from "../../Components/Sidebar/Sidebar";
 import { Posts } from "../../Components/Posts/Posts";
 import "./Home.css";
 import axios from "axios";
-import {useLocation } from "react-router";
+import { useLocation } from "react-router";
 
 export const Home = () => {
 	const [posts, setPosts] = useState([]);
@@ -15,7 +15,7 @@ export const Home = () => {
 
 	const fetchPosts = () => {
 		return axios
-			.get("http://localhost:8000/api/posts"+search)
+			.get("https://murariblog.vercel.app/api/posts" + search)
 			.then((res) => setPosts(res.data))
 			.catch((er) => console.log(er));
 	};
@@ -29,7 +29,7 @@ export const Home = () => {
 		<>
 			<Header />
 			<div className="home">
-				<Posts posts={ posts}/>
+				<Posts posts={posts} />
 				<Sidebar />
 			</div>
 		</>

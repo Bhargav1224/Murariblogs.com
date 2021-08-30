@@ -13,7 +13,7 @@ export const Settings = () => {
 
 	const [update, setUpdate] = useState(false);
 
-	const PF = "http://localhost:8000/Images/";
+	const PF = "https://murariblog.vercel.app/Images/";
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
@@ -31,14 +31,14 @@ export const Settings = () => {
 			data.append("file", file);
 			updatedUser.profilePic = filename;
 			try {
-				await axios.post("http://localhost:8000/api/upload", data);
+				await axios.post("https://murariblog.vercel.app/api/upload", data);
 			} catch (err) {
 				console.log(err);
 			}
 		}
 		try {
 			const res = await axios.put(
-				`http://localhost:8000/api/users/${user._id}`,
+				`https://murariblog.vercel.app/api/users/${user._id}`,
 				updatedUser
 			);
 			setUpdate(true);

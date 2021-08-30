@@ -14,7 +14,7 @@ export const Login = () => {
 		e.preventDefault();
 		dispatch({ type: "LOGIN_START" });
 		return axios
-			.post("http://localhost:8000/api/auth/login", {
+			.post("https://murariblog.vercel.app/api/auth/login", {
 				username: userRef.current.value,
 				password: passwordRef.current.value,
 			})

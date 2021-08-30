@@ -3,7 +3,7 @@ import "./Post.css";
 import { Link } from "react-router-dom";
 export const Post = ({ post }) => {
 	//public folder
-	const PF = "http://localhost:8000/Images/";
+	const PF = "https://murariblog.vercel.app/Images/";
 
 	return (
 		<div className="post" key={post._id}>

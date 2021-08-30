@@ -9,7 +9,7 @@ export const SinglePost = () => {
 	const { postId } = useParams();
 
 	const [post, setPost] = useState({});
-	const PF = "http://localhost:8000/Images/";
+	const PF = "https://murariblog.vercel.app/Images/";
 
 	const { user } = useContext(Context);
 
@@ -21,7 +21,7 @@ export const SinglePost = () => {
 
 	const fetchSinglePost = () => {
 		return axios
-			.get(`http://localhost:8000/api/posts/${postId}`)
+			.get(`https://murariblog.vercel.app/api/posts/${postId}`)
 			.then((res) => {
 				setPost(res.data);
 				setTitle(res.data.title);
@@ -32,7 +32,7 @@ export const SinglePost = () => {
 
 	const handleDelete = () => {
 		return axios
-			.delete(`http://localhost:8000/api/posts/${postId}`, {
+			.delete(`https://murariblog.vercel.app/api/posts/${postId}`, {
 				data: {
 					username: user.username,
 				},
@@ -45,7 +45,7 @@ export const SinglePost = () => {
 
 	const handleUpdate = () => {
 		return axios
-			.put(`http://localhost:8000/api/posts/${postId}`, {
+			.put(`https://murariblog.vercel.app/api/posts/${postId}`, {
 				username: user.username,
 				title,
 				desc,
