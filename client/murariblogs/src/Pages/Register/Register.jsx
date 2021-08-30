@@ -39,7 +39,7 @@ export const Register = () => {
 			})
 			.catch((er) => setError(true));
 
-		// console.log(payload);
+		
 	};
 
 	return (

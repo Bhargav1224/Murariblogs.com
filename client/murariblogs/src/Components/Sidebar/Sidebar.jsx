@@ -10,10 +10,10 @@ export const Sidebar = () => {
 		return axios
 			.get("https://murariblog.vercel.app/api/categories")
 			.then((res) => {
-				console.log(res.data);
+				// console.log(res.data);
 				setCats(res.data);
 			})
-			.catch((er) => console.log(er));
+			.catch((er) => {});
 	};
 	useEffect(() => {
 		getCats();
@@ -27,8 +27,9 @@ export const Sidebar = () => {
 					alt="profile.png"
 				/>
 				<p className="sidebarDesc">
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate qui
-					necessitatibus nostrum illum reprehenderit.
+					I've always been Passionated about programming and creating things and
+					I've found a great way to channel my creativity through web
+					development.
 				</p>
 			</div>
 			<div className="sidebarItem">

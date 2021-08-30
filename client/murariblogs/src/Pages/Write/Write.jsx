@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import "./Write.css";
 import axios from "axios";
 import { Context } from "../../Context/Context";
-import { useHistory } from "react-router";
+// import { useHistory } from "react-router";
 
 export const Write = () => {
 	const [title, setTitle] = useState("");
@@ -26,7 +26,7 @@ export const Write = () => {
 			try {
 				await axios.post("https://murariblog.vercel.app/api/upload", data);
 			} catch (err) {
-				console.log(err);
+				// console.log(err);
 			}
 		}
 		try {

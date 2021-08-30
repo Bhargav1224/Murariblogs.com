@@ -7,7 +7,7 @@ import axios from "axios";
 export const Login = () => {
 	const userRef = useRef();
 	const passwordRef = useRef();
-
+// eslint-disable-next-line
 	const { dispatch, isFetching, error } = useContext(Context);
 
 	const handleSubmit = (e) => {
@@ -26,7 +26,7 @@ export const Login = () => {
 			});
 	};
 
-	console.log(isFetching);
+	// console.log(isFetching);
 
 	return (
 		<div className="login">

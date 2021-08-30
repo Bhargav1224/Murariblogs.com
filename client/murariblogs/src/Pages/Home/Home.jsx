@@ -16,8 +16,11 @@ export const Home = () => {
 	const fetchPosts = () => {
 		return axios
 			.get("https://murariblog.vercel.app/api/posts" + search)
-			.then((res) => setPosts(res.data))
-			.catch((er) => console.log(er));
+			.then((res) => {
+				console.log(res.data);
+				setPosts(res.data);
+			})
+			.catch((er) => {});
 	};
 
 	useEffect(() => {

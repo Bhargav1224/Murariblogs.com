@@ -27,7 +27,7 @@ export const SinglePost = () => {
 				setTitle(res.data.title);
 				setDesc(res.data.desc);
 			})
-			.catch((er) => console.log(er));
+			.catch((er) =>{});
 	};
 
 	const handleDelete = () => {

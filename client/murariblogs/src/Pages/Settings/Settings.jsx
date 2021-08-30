@@ -33,7 +33,7 @@ export const Settings = () => {
 			try {
 				await axios.post("https://murariblog.vercel.app/api/upload", data);
 			} catch (err) {
-				console.log(err);
+				// console.log(err);
 			}
 		}
 		try {
