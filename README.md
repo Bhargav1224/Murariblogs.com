@@ -27,6 +27,13 @@ In this project we have used the following tech stack.
 
 <br>
 
+## Snaps of the Project
+
+#HomePage
+
+![homepage](https://user-images.githubusercontent.com/77038785/132504566-682b047b-2880-4599-bd4a-37aae90e3dea.PNG)
+
+
 ## How to run the project 📑
 
 In this project I am able to achieve a near to perfect Blog writer application. As we do not want to overwhelm you, we haven't shared all the pages here.Please fork the repository and then use it on your own. If you want to collaborate with us on this project then please feel free to reach out to us.
